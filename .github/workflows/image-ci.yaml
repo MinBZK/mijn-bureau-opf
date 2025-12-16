@@ -1,4 +1,4 @@
-name: backend-ci
+name: image-ci
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
