@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Amsterdam"
+    groups:
+      allgithubactions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "⬆️(deps) "
+
+  - package-ecosystem: "docker"
+    directory: "/mijnbureau-openproject"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Amsterdam"
+    groups:
+      alldockercompose:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "⬆️(deps) "
