@@ -1,4 +1,4 @@
-FROM openproject/openproject:16.6.3 AS plugin
+FROM openproject/openproject:17.0.2 AS plugin
 
 # If installing a local plugin (using `path:` in the `Gemfile.plugins` above),
 # you will have to copy the plugin code into the container here and use the
@@ -13,7 +13,7 @@ COPY Gemfile.plugins /app/
 RUN bundle config unset deployment && bundle install && bundle config set deployment 'true'
 RUN ./docker/prod/setup/precompile-assets.sh
 
-FROM openproject/openproject:16-slim
+FROM openproject/openproject:17-slim
 
 COPY --from=plugin /usr/bin/git /usr/bin/git
 COPY --chown=$APP_USER:$APP_USER --from=plugin /app/vendor/bundle /app/vendor/bundle
